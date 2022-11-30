@@ -9,6 +9,8 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        [Range(0, 1)] [SerializeField] private float runSpeedPercentage = 1f;
+
         private Mover mover;
         private Fighter fighter;
         private Health health;
@@ -54,7 +56,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    mover.StartMoveAction(hit.point);
+                    mover.StartMoveAction(hit.point, runSpeedPercentage);
                 }
                 return true;
             }

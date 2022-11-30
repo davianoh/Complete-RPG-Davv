@@ -112,6 +112,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6110199584318471441, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
+      propertyPath: weaponDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110199584318471441, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
+      propertyPath: firstAttackDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110199584318471441, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
+      propertyPath: instantFirstAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110199584318471441, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7252384063766238349, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
       propertyPath: m_Name
       value: Player

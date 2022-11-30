@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4554661998904563739, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
       propertyPath: health
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6051628840689931053, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
       propertyPath: m_RootOrder
@@ -116,6 +116,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6110199584318471441, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
+      propertyPath: weaponDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110199584318471441, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
+      propertyPath: firstAttackDelay
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110199584318471441, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
+      propertyPath: attackSpeedPercentage
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7252384063766238349, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -159,6 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  suspiciousDuration: 3
+  patrolPath: {fileID: 0}
+  dwellDuration: 2
+  patrolSpeedPercentage: 0.25
 --- !u!114 &3809138449881604688
 MonoBehaviour:
   m_ObjectHideFlags: 0

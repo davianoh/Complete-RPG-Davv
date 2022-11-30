@@ -15,18 +15,22 @@ namespace RPG.Combat
         [SerializeField] private float weaponRange = 2f;
         [SerializeField] private float timeBetweenAttacks = 1f;
         [SerializeField] private float weaponDamage = 5f;
+        [SerializeField] private float firstAttackDelay = 0.5f;
+        [Range(0, 1)] [SerializeField] private float attackSpeedPercentage = 1f;
 
-        private float timeSinceLastAttack = 99f;
+        private float timeSinceLastAttack;
         
         void Start()
         {
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
+
+            timeSinceLastAttack = timeBetweenAttacks - firstAttackDelay;
         }
 
         void Update()
         {
-            timeSinceLastAttack += Time.deltaTime;
+            //timeSinceLastAttack += Time.deltaTime;
 
             if(target != null)
             {
@@ -37,7 +41,9 @@ namespace RPG.Combat
                 }
                 else
                 {
-                    mover.MoveTo(target.transform.position);
+                    animator.ResetTrigger("attack");
+                    mover.MoveTo(target.transform.position, attackSpeedPercentage);
+                    timeSinceLastAttack = timeBetweenAttacks - firstAttackDelay;
                 }
             }
         }
@@ -45,7 +51,8 @@ namespace RPG.Combat
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
-            if(timeSinceLastAttack >= timeBetweenAttacks && !target.IsDead())
+            timeSinceLastAttack += Time.deltaTime;
+            if (timeSinceLastAttack >= timeBetweenAttacks && !target.IsDead())
             {
                 animator.SetTrigger("attack");
                 timeSinceLastAttack = 0f;
