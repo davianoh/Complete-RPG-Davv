@@ -155,6 +155,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ae6efebd243be498f86cf5f1107078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runSpeedPercentage: 1
+--- !u!136 &4841660670301397373
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567929212519706602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &8798717152340830282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6051628840689931053, guid: 5cc094105a8dc8b44aaec28ddc3575e1, type: 3}

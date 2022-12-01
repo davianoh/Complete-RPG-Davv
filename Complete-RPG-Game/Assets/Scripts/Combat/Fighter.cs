@@ -70,6 +70,7 @@ namespace RPG.Combat
         {
             animator.SetTrigger("stopAttack");
             target = null;
+            mover.Cancel();
         }
 
         // Animation Event
