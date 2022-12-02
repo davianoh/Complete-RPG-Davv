@@ -58,18 +58,34 @@ namespace RPG.Movement
             navMeshAgent.isStopped = true;
         }
 
+
+        #region SaveFunction
+
+        [System.Serializable]
+        struct MoverSaveData
+        {
+            public SerializableVector3 position;
+            public SerializableVector3 rotation;
+        }
+
         public object CaptureState()
         {
-            return new SerializableVector3(transform.position);
+            MoverSaveData data = new MoverSaveData();
+            data.position = new SerializableVector3(transform.position);
+            data.rotation = new SerializableVector3(transform.eulerAngles);
+            return data;
         }
 
         public void RestoreState(object state)
         {
-            SerializableVector3 position = (SerializableVector3)state;
-            navMeshAgent.Warp(position.ToVector());
-            //navMeshAgent.enabled = false;
-            //transform.position = position.ToVector();
-            //navMeshAgent.enabled = true;
+            MoverSaveData data = (MoverSaveData)state;
+
+            navMeshAgent.enabled = false;
+            transform.position = data.position.ToVector();
+            transform.eulerAngles = data.rotation.ToVector();
+            navMeshAgent.enabled = true;
         }
+
+        #endregion
     }
 }
