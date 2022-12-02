@@ -9,7 +9,7 @@ namespace RPG.SceneManagement
     {
         private CanvasGroup canvasGroup;
 
-        private void Start()
+        private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
         }
@@ -26,6 +26,7 @@ namespace RPG.SceneManagement
                 canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time / fadeSeconds);
                 yield return null;
             }
+            canvasGroup.alpha = targetFadeAlpha;
         }
     }
 }

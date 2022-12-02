@@ -35,15 +35,19 @@ namespace RPG.SceneManagement
 
             Fader fader = FindObjectOfType<Fader>();
             yield return StartCoroutine(fader.Fade(0f, 1f, fadeOutTime, Color.black));
+            SavingWrapper saving = FindObjectOfType<SavingWrapper>();   //save
+            saving.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneDestinationIndex);
+            
+            saving.Load();  //load
             Portal otherPortal = GetOtherPortal();
             UpdateSpawnPlayer(otherPortal);
-            yield return new WaitForSeconds(waitTransitionTime);
 
+            saving.Save();  //save again
+            yield return new WaitForSeconds(waitTransitionTime);
             yield return StartCoroutine(fader.Fade(1f, 0f, fadeInTime, Color.black));
 
-            
 
             Destroy(gameObject);
         }
